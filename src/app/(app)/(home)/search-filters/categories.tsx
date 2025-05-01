@@ -7,11 +7,11 @@ import { cn } from '@/lib/utils';
 
 import CategoryDropdown from './category-dropdown';
 
-import { CustomCategory } from '../type';
 import CategoriesSidebar from './categories-sidebar';
+import { CategoriesGetManyOutput } from '@/modules/categories/type';
 
 interface CategoriesProps {
-	data: CustomCategory[];
+	data: CategoriesGetManyOutput;
 }
 
 const Categories = ({ data }: CategoriesProps) => {
@@ -69,7 +69,6 @@ const Categories = ({ data }: CategoriesProps) => {
 			<CategoriesSidebar
 				open={isSidebarOpen}
 				onOpenChange={setIsSidebarOpen}
-				data={data}
 			/>
 
 			{/* Hidden div to measure all items */}

@@ -8,21 +8,17 @@ import { Button } from '@/components/ui/button';
 
 import CategoriesSidebar from './categories-sidebar';
 
-import { CustomCategory } from '../type';
-
 interface SearchInputProps {
 	disabled?: boolean;
-	data: CustomCategory[];
 }
 
-const SearchInput = ({ disabled, data }: SearchInputProps) => {
+const SearchInput = ({ disabled }: SearchInputProps) => {
 	const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
 	return (
 		<div>
 			<div className="flex items-center gap-2 w-full">
 				<CategoriesSidebar
-					data={data}
 					open={isSidebarOpen}
 					onOpenChange={setIsSidebarOpen}
 				/>
