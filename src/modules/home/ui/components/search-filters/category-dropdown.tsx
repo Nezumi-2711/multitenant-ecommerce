@@ -1,14 +1,14 @@
 'use client';
 
 import { useRef, useState } from 'react';
+import Link from 'next/link';
 
 import { Button } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
-import useDropdownPosition from './use-dropdown-position';
+import { cn } from '@/lib/utils'
+import { CategoriesGetManyOutput } from '@/modules/categories/type';
+;
 import SubCategoryMenu from './subcategory-menu';
 
-import Link from 'next/link';
-import { CategoriesGetManyOutput } from '@/modules/categories/type';
 
 interface CategoryDropdownProps {
 	category: CategoriesGetManyOutput[1];
@@ -23,8 +23,6 @@ const CategoryDropdown = ({
 }: CategoryDropdownProps) => {
 	const [isOpen, setIsOpen] = useState(false);
 	const dropdownRef = useRef<HTMLDivElement>(null);
-	const { getDropdownPosition } = useDropdownPosition(dropdownRef);
-	const dropdownPosition = getDropdownPosition();
 
 	// TODO: Will improve in mobile screen
 	// const toggleDropdown = () => {
@@ -77,7 +75,6 @@ const CategoryDropdown = ({
 			<SubCategoryMenu
 				category={category}
 				isOpen={isOpen}
-				position={dropdownPosition}
 			/>
 		</div>
 	);
